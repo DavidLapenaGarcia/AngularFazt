@@ -1,0 +1,2 @@
+ng new "" ==crear proyecto
+ng serve == crear servidor virtual de angular

@@ -16,3 +16,16 @@ $git branch nAmE		Crea una branch/branca nueva
 $git checkout nAmE		Para entrar en una rama diferente. 
 $git remote add origin	https:
 $git push -u origin master	
+
+$ git branch			see all branches
+$ git checkout -b [name_of_your_new_branch]		crear nueva branca
+$ git checkout [name_of_your_new_branch]		move to branch
+$ git push origin [name_of_your_new_branch]		push it
+$ git remote add [name_of_your_remote] [name_new_branch]		Addd a new remote for you branch
+$ git push [name_of_your_new_remote] [url]  	Push changes from your commit into your branch
+$ git fetch [name_of_your_remote]				Update your branch when the original branch from official repository has been updated
+$ git merge [name_of_your_remote]/develop		Then you need to apply to merge changes, if your branch is derivated from develop you need to do
+$ git branch -d [name_of_your_new_branch]		Delete a branch on your local filesystem
+$ git branch -D [name_of_your_new_branch]		Force delete of local branch on your filesystem
+$ git push origin :[name_of_your_new_branch]	Delete the branch on github
+$ git branch <name_of_your_new_branch> 		 	Create a new branch

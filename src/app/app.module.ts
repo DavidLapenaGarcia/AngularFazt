@@ -1,16 +1,20 @@
+//fichero con los componentes importados
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReservationEntryComponent } from './reservation-entry/reservation-entry.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReservationEntryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

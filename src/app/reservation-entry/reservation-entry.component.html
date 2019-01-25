@@ -1,0 +1,24 @@
+<!--#reservationEntryForm para darle un nombre, ng es para decirle angular-->
+<form #reservationEntryForm="ngForm">
+  <div class="container well jumbotron">
+    <div class="form-horizontal">
+      <div class="col-xs-12">
+        <h2>Make a reservation in the best Restaurant</h2>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-12" aling="center">
+          <h3>Personal Data</h3>
+        </div>
+      </div>
+      <label class="col-sm-2">Name *</label>
+      <div class="col-sm-4">
+        <!--Preguntar por esto-->
+        <input type="text" class="form-control" #clientName="ngModel"[(ngModel)]="reservation.name"
+        name="clientName">
+      </div>
+    </div>
+  </div>
+</form>
