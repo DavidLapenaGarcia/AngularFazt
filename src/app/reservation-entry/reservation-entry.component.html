@@ -20,6 +20,25 @@
         #clientName="ngModel" [(ngModel)]="reservation.name"
         name="clientName" required minlength="6"  value="">
       </div>
+
+      <label class="col-sm-2">Surname *</label>
+      <div class="col-sm-4">
+        <!--Preguntar por esto-->
+        <input type="text" class="form-control" 
+        #clientSurname="ngModel" [(ngModel)]="reservation.surname"
+        name="clientSurname" required maxlength="10" required>
+      </div>
+
+      <label class="col-sm-2">Mail *</label>
+      <div class="col-sm-4">
+        <!--Preguntar por esto-->
+        <input type="email" class="form-control" 
+        #clientEmail="ngModel" [(ngModel)]="reservation.email"
+        name="clientEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        required
+        >
+      </div>
+
     </div>
 
     <div class="has-error" *ngIf="clientName.touched && clientName.invalid"> 
