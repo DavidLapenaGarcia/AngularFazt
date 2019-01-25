@@ -10,7 +10,8 @@ import { Reservation } from '../model/reservation';
 })
 export class ReservationEntryComponent implements OnInit {
 
-  reservation: Reservation;
+  reservation     : Reservation;
+  reservationTimes: string[] = ["12:00" , "13:00", "14:00", "52:00"];
 
   constructor() { }
 
@@ -21,7 +22,7 @@ export class ReservationEntryComponent implements OnInit {
   }
 
   reservationEntry():void{
-    alert("reservationEntry works");
+    console.log(this.reservation);
   }
 
 }

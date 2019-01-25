@@ -6,16 +6,16 @@
         <h2>Make a reservation in the best Restaurant</h2>
       </div>
     </div>
-    <br>
+  
     <div class="form-group">
       <div class="row">
         <div class="col-xs-12" aling="center">
           <h3>Personal Data</h3>
         </div>
       </div>
+
       <label class="col-sm-2">Name *</label>
       <div class="col-sm-4">
-        <!--Preguntar por esto-->
         <input type="text" class="form-control" 
         #clientName="ngModel" [(ngModel)]="reservation.name"
         name="clientName" required minlength="6"  value="">
@@ -23,7 +23,6 @@
 
       <label class="col-sm-2">Surname *</label>
       <div class="col-sm-4">
-        <!--Preguntar por esto-->
         <input type="text" class="form-control" 
         #clientSurname="ngModel" [(ngModel)]="reservation.surname"
         name="clientSurname" required maxlength="10" required>
@@ -31,7 +30,6 @@
 
       <label class="col-sm-2">Mail *</label>
       <div class="col-sm-4">
-        <!--Preguntar por esto-->
         <input type="email" class="form-control" 
         #clientEmail="ngModel" [(ngModel)]="reservation.email"
         name="clientEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -41,10 +39,9 @@
 
       <label class="col-sm-2">Phone *</label>
       <div class="col-sm-4">
-        <!--Preguntar por esto-->
         <input type="number" class="form-control" 
         #clientPhone="ngModel" [(ngModel)]="reservation.phone"
-        name="clientPhone" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        name="clientPhone" 
         placeholder="999999999" required
         >
       </div>
@@ -60,14 +57,24 @@
 
       <label class="col-sm-2 form-control-label">Reservation Date  *</label>
       <div class="col-sm-4">
-        <!--Preguntar por esto-->
         <input type="date" class="form-control" 
         #clientReservationDate="ngModel" [(ngModel)]="reservation.reservationDate"
         name="clientReservationDate" required
         >
       </div>
+
+      <label class="col-sm-2 form-control-label">Reservation Time  *</label>
+      <div class="col-sm-4">
+        <select class="form-control" name="clientReservationTime"
+        #clientReservationTime="ngModel"
+        [(ngModel)]="reservation.reservationTime">
+        <option *ngFor="let resTime of reservationTimes; let i=index" 
+          value={{resTime}}>
+            {{resTime}}
+       </option>
+      </select>
+      </div>
     </div>
-    
 
     <div class="has-error" *ngIf="clientName.touched && clientName.invalid"> 
       <span class="text-danger">Please, enter a valid input</span>
@@ -83,5 +90,6 @@
         </div>
       </div>
     </div>
+    
   </div>
 </form>
