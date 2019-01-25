@@ -1,18 +1,30 @@
-$ git init			empezar proyecto.
-$ git status			revisa como esta el futuro commit, cambios o no..
-$ git add			subir un archivo nuevo o un archivo con cambios.
-	 add .			Subir todos los archivos.
-$git commit			guardar un repositorio.
-	-m "messege"	Deja un mensaje del commit
-$git config:
+$ git init										Empezar proyecto.
+$ git status									Revisa como esta el futuro commit, cambios o no..
+$ git add										Subir un archivo nuevo o un archivo con cambios.
+	 add .											Subir todos los archivos.
+$ git commit									Guardar un repositorio.
+	-m "messege"									Deja un mensaje del commit
+$ git config:
 	--global user.email "mail@mail".
 	--global user.name "name".
-$ git log			para poder diferenciar cada commit, el historial
-$git checkout -- file.name	rehacer un cambio que esta pendiente de commit.
-$git diff file.name		ver los cambios realizados.
-file .gitignore			archivo dónde se citan los archivos que git debe ignorar
-$git branch			Muestra las versiones que hay, la master etc..
-$git branch nAmE		Crea una branch/branca nueva
-$git checkout nAmE		Para entrar en una rama diferente. 
-$git remote add origin	https:
-$git push -u origin master	
+$ git log										Para poder diferenciar cada commit, el historial
+$ git checkout -- file.name						Rehacer un cambio que esta pendiente de commit.
+$ git diff file.name							Ver los cambios realizados.
+		file .gitignore								Archivo dónde se citan los archivos que git debe ignorar
+
+$git remote add origin	https:					Enlacar proyecto a un repositorio remoto (GitHub)
+$git push -u origin master						Agregar cambios a repositorio remoto
+
+
+$ git branch									See all branches
+$ git checkout -b [name_of_your_new_branch]		Crear nueva branca
+$ git checkout [name_of_your_new_branch]		Move to branch
+$ git push origin [name_of_your_new_branch]		Push it
+$ git remote add [name_remote] [new_branch]		Addd a new remote for you branch
+$ git push [name_of_your_new_remote] [url]  	Push changes from your commit into your branch
+$ git fetch [name_of_your_remote]				Update your branch when the original branch from official repository has been updated
+$ git merge [name_of_your_remote]/develop		Then you need to apply to merge changes, if your branch is derivated from develop you need to do
+$ git branch -d [name_of_your_new_branch]		Delete a branch on your local filesystem
+$ git branch -D [name_of_your_new_branch]		Force delete of local branch on your filesystem
+$ git push origin :[name_of_your_new_branch]	Delete the branch on github
+$ git branch <name_of_your_new_branch> 		 	Create a new branch
