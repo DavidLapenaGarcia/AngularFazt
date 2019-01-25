@@ -22,7 +22,6 @@ export class ReservationEntryComponent implements OnInit {
 
   reservationEntry():void{
     alert("reservationEntry works");
-    
   }
 
 }
