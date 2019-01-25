@@ -1,5 +1,5 @@
 <!--#reservationEntryForm para darle un nombre, ng es para decirle angular-->
-<form #reservationEntryForm="ngForm">
+<form #reservationEntryForm="ngForm" (ngSubmit)="reservationEntry()">
   <div class="container well jumbotron">
     <div class="form-horizontal">
       <div class="col-xs-12">
@@ -16,8 +16,19 @@
       <label class="col-sm-2">Name *</label>
       <div class="col-sm-4">
         <!--Preguntar por esto-->
-        <input type="text" class="form-control" #clientName="ngModel"[(ngModel)]="reservation.name"
-        name="clientName">
+        <input type="text" class="form-control" 
+        #clientName="ngModel" [(ngModel)]="reservation.name"
+        name="clientName" required minlength="6"  value="">
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-success" name="button">
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   </div>
