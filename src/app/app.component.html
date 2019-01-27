@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content p-3">
     <div class="row">
         <ol>
         <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
@@ -8,7 +8,25 @@
         </ol>
     </div>
     <div class="row">
+        <div class="col12">
+            <input type="text"
+            class="form-control"
+            (input)="onWritteUser($event)">
+        </div>
         
+        <div class="col-12">
+           <p> {{userName}}</p> 
+        </div>
+        
+
+        <div class="col-12">
+            <button class="btn btn-primary"
+            [disabled]="!diseableButtton"
+            (click)="buttonCliked()"
+            >
+                Check User Name
+            </button>
+        </div >
     </div>
 
 </div>
