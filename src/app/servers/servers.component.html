@@ -1,7 +1,12 @@
 <label>Serber Name</label>
+<!--
+    <input type="text"
+    class="form-control"
+    (input)="onUpdateServerNane($event)">
+-->
 <input type="text"
-class="form-control"
-(input)="onUpdateServerNane($event)">
+    class="form-control"
+  [(ngModel)]="serverName">
 <p>{{ serverName }}</p>
 
 <button 

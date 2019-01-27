@@ -13,7 +13,7 @@ import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No serverCrated';
-  serverName: string='';
+  serverName: string='Initialy';
 
   constructor() {
     setTimeout(()=>{
