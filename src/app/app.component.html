@@ -9,9 +9,10 @@
     </div>
     <div class="row">
         <div class="col12">
+            <label >Username</label>
             <input type="text"
             class="form-control"
-            (input)="onWritteUser($event)">
+            [(ngModel)]="userName">
         </div>
         
         <div class="col-12">
@@ -21,10 +22,10 @@
 
         <div class="col-12">
             <button class="btn btn-primary"
-            [disabled]="!diseableButtton"
+            [disabled]="userName === ''"
             (click)="buttonCliked()"
             >
-                Check User Name
+                Reset User Name
             </button>
         </div >
     </div>
