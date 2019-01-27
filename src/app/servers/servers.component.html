@@ -20,4 +20,16 @@
 <ng-template #noServer>
     <p>1 No server was created</p>
 </ng-template>
+
+<button (click)="buttonTask3()">
+    Display Details
+</button>
+<p *ngIf="task3If">Somethink to show</p>
+<p *ngFor="let number of task3Array"
+    [ngStyle]="{backgroundColor: number > 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{ 'white-text-task3': number >= 4 }"
+>
+ {{number}}
+</p>
+
 <app-server *ngFor="let server of servers">Loading...</app-server>

@@ -8,7 +8,12 @@ import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
   /*template: `<app-server>Loading...</app-server>
             <app-server>Loading...</app-server>`,*/
   templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  styleUrls: ['./servers.component.css'],
+  styles : [`
+            .white-text-task3{
+              color: white;
+            }
+          `],
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
@@ -17,6 +22,9 @@ export class ServersComponent implements OnInit {
   serverCreated =false;
   servers = ['test', 'test2'];
 
+  task3If:boolean= false;
+  task3number=1;
+  task3Array= [];
 
   constructor() {
     setTimeout(()=>{
@@ -26,6 +34,13 @@ export class ServersComponent implements OnInit {
 
   ngOnInit() {
   }
+  buttonTask3(){
+    this.task3If = !this.task3If;
+    this.task3Array.push(this.task3Array.length+1);
+
+  }
+
+
 
   onCreateServer(){
     this.serverCreated = true;
