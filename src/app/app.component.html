@@ -1,36 +1,14 @@
-<div class="content p-3">
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
     <div class="row">
-        <ol>
-        <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
-        <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
-        <li>Add a button which may only be clicked if the username is NOT an empty string</li>
-        <li>Upon clicking the button, the username should be reset to an empty string</li>
-        </ol>
+        <div class="col-xs-12">
+            <h3>I'm in the app component</h3>
+            <hr>
+            <app-servers></app-servers> 
+            <div app-servers></div>
+            <div class="app-servers"></div>
+        </div>        
     </div>
-    <div class="row">
-        <div class="col12">
-            <label >Username</label>
-            <input type="text"
-            class="form-control"
-            [(ngModel)]="userName">
-        </div>
-        
-        <div class="col-12">
-           <p> {{userName}}</p> 
-        </div>
-        
-
-        <div class="col-12">
-            <button class="btn btn-primary"
-            [disabled]="userName === ''"
-            (click)="buttonCliked()"
-            >
-                Reset User Name
-            </button>
-        </div >
-    </div>
-
 </div>
-
 
 
