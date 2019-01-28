@@ -41,7 +41,7 @@ export class ServersComponent implements OnInit {
   }
    buttonTask3(){
     this.task3If = !this.task3If;
-    this.task3Array.push(this.task3Array.length+1);
+    this.task3Array.push( new Date() );
 
   }
   onUpdateServerNane(event: Event){

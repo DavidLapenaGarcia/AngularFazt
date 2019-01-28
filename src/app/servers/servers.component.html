@@ -25,10 +25,10 @@
     Display Details
 </button>
 <p *ngIf="task3If">Somethink to show</p>
-<p *ngFor="let number of task3Array"
-    [ngStyle]="{backgroundColor: number > 4 ? 'blue' : 'transparent'}"
-    [ngClass]="{ 'white-text-task3': number >= 4 }"
+<p *ngFor="let number of task3Array; let i = index"
+    [ngStyle]="{backgroundColor: i > 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{ 'white-text-task3': i > 4 }"
 >
- {{number}}
+ ID= {{i}}  Date= {{number}}
 </p>
 <app-server *ngFor="let server of servers">Loading...</app-server>
