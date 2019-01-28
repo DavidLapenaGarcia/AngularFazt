@@ -34,19 +34,16 @@ export class ServersComponent implements OnInit {
 
   ngOnInit() {
   }
-  buttonTask3(){
-    this.task3If = !this.task3If;
-    this.task3Array.push(this.task3Array.length+1);
-
-  }
-
-
-
   onCreateServer(){
     this.serverCreated = true;
     this.servers.push(this.serverName);
     this.serverCreationStatus='serverCREATED! Name is '+this.serverName;
-  }  
+  }
+   buttonTask3(){
+    this.task3If = !this.task3If;
+    this.task3Array.push(this.task3Array.length+1);
+
+  }
   onUpdateServerNane(event: Event){
     this.serverName = (<HTMLInputElement>event.target).value;
   }
