@@ -1,3 +1,4 @@
 ng serve
 ng generate
             component [component_name] || ng g c [component_name]
+            component --spec false  ===> To do not ceate spec file
