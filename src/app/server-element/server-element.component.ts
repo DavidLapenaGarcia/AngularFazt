@@ -6,7 +6,8 @@ import { Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./server-element.component.css']
 })
 export class ServerElementComponent implements OnInit {
-  @Input() element: {type: string, name: string, content: string}; // To be able to get data from the app.component's https
+  // tslint:disable-next-line:max-line-length 
+  @Input('srvElement') element: {type: string, name: string, content: string};// To be able to get data from the app.component's https using alias
 
   constructor() { }
 
