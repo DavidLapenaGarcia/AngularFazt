@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -9,8 +9,10 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
 
-  newServerName = '';
-  newServerContent = '';
+   newServerName = '';
+   newServerContent = '';
+  @ViewChild('serverConentInput') serverContentInput: ElementRef; // U can cath this, but never set value
+
   constructor() { }
 
   ngOnInit() {
@@ -19,10 +21,10 @@ export class CockpitComponent implements OnInit {
    * onServerAdded
    * This function is only executable by a button on app.component
    */
-  onServerAdded(nameInput) {
-    this.serverCreated.emit({
-      serverName: nameInput,
-      serverContent: this.newServerContent
+  onServerAdded(nameInput: HTMLInputElement) {
+     this.serverCreated.emit({
+      serverName: nameInput.value,
+      serverContent: this.serverContentInput.nativeElement.value
       });
   }
   /**
