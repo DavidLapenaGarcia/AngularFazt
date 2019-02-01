@@ -19,9 +19,9 @@ export class CockpitComponent implements OnInit {
    * onServerAdded
    * This function is only executable by a button on app.component
    */
-  onServerAdded() {
+  onServerAdded(nameInput) {
     this.serverCreated.emit({
-      serverName: this.newServerName,
+      serverName: nameInput,
       serverContent: this.newServerContent
       });
   }
