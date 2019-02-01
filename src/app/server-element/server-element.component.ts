@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
+import { Component,
+OnInit, OnChanges, DoCheck, AfterContentInit,
+Input, ViewEncapsulation, SimpleChanges, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -10,14 +12,39 @@ import { Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
 // using ViewEncapsulation.Native, only if the browser is able to emulate
 // using ViewEncapsulation.Emulaete,predeterminated
 
-export class ServerElementComponent implements OnInit {
+export class ServerElementComponent implements
+OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+  
   // tslint:disable-next-line:no-input-rename
   @Input('srvElement') element: {type: string, name: string, content: string};
   // To be able to get data from the app.component's https using alias
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    console.log('constructor called');
   }
-
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('onChanges called');
+    console.log(changes);
+  }
+  ngOnInit() {
+    console.log('OnInit called!');
+  }
+  ngDoCheck(): void {
+    console.log('DoCheck called');
+  }
+  ngAfterContentInit(): void {
+    console.log('AfterContentInit called');
+  }
+  ngAfterContentChecked(): void {
+    console.log('AfterContentChecked called');
+  }
+  ngAfterViewInit(): void {
+    console.log('AfterViewInit called');
+  }
+  ngAfterViewChecked(): void {
+    console.log('AfterViewChecked called');
+  }
+  ngOnDestroy(): void {
+    console.log('Destroyed called');
+  }
 }
