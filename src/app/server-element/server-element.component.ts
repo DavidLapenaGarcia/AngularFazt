@@ -1,7 +1,7 @@
 import { Component,
 OnInit, OnChanges, DoCheck, AfterContentInit,
 Input, ViewEncapsulation, SimpleChanges, AfterContentChecked, AfterViewInit,
-AfterViewChecked, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+AfterViewChecked, OnDestroy, ViewChild, ElementRef, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -21,9 +21,13 @@ OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
   @Input('srvElement') element: {type: string, name: string, content: string};
   // To be able to get data from the app.component's https using alias
   @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') paragraph: ElementRef;
+
   constructor() {
     console.log('constructor called');
   }
+
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log('onChanges called');
     console.log(changes);
@@ -31,6 +35,7 @@ OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
   ngOnInit() {
     console.log('OnInit called!');
     console.log('TextContent:: ' + this.header.nativeElement.textContent);
+    console.log('PARAGRAPH:: ' + this.paragraph.nativeElement.textContent);
   }
   ngDoCheck(): void {
     console.log('DoCheck called');
@@ -40,7 +45,9 @@ OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
   }
   ngAfterContentChecked(): void {
     console.log('AfterContentChecked called');
+    console.log('PARAGRAPH:: ' + this.paragraph.nativeElement.textContent);
   }
+
   ngAfterViewInit(): void {
     console.log('AfterViewInit called');
     console.log('TextContent2:: ' + this.header.nativeElement.textContent);
