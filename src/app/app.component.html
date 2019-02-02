@@ -1,24 +1,9 @@
+<app-header></app-header>
 <div class="container">
-    <app-cockpit 
-    (serverCreated)="onServerAdded($event)"
-    (bpCreated)="onBlueprintAdded($event)"
-    >Loading app-cockpit...</app-cockpit>
-  <hr>
   <div class="row">
-    <div class="col-xs-12">
-      <button (click)="onDestroyFirst()">Destroy first component</button>
-      <app-server-element 
-      *ngFor="let serverElement of serverElements"
-      [srvElement]="serverElement">
-        <p #contentParagraph>
-        <strong *ngIf="serverElement.type === 'server'" style="color: red">
-          {{ serverElement.content }}
-        </strong>
-        <em *ngIf="serverElement.type === 'blueprint'" >
-          {{ serverElement.content }}
-        </em>
-      </p>
-      </app-server-element>
+    <div class="col-md-12">
+      <app-recipes></app-recipes>
+      <app-shopping-list></app-shopping-list>
     </div>
   </div>
 </div>
