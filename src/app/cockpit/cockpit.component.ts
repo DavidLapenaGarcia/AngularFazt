@@ -7,6 +7,7 @@ import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef} from '@
 })
 export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+  // tslint:disable-next-line:no-output-rename
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
 
    newServerName = '';
@@ -24,7 +25,7 @@ export class CockpitComponent implements OnInit {
   onServerAdded(nameInput: HTMLInputElement) {
      this.serverCreated.emit({
       serverName: nameInput.value, // Local Reference
-      serverContent: this.serverContentInput.nativeElement.value
+      serverContent: this.serverContentInput.nativeElement.value // By @ViewChild and getting acces to template & DOM
       });
   }
   /**
@@ -33,7 +34,7 @@ export class CockpitComponent implements OnInit {
    */
   onBlueprintAdded() {
       this.blueprintCreated.emit({
-        serverName: this.newServerName, 
+        serverName: this.newServerName,
         serverContent: this.newServerContent
       });
   }
