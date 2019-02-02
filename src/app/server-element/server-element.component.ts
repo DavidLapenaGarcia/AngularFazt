@@ -1,6 +1,7 @@
 import { Component,
 OnInit, OnChanges, DoCheck, AfterContentInit,
-Input, ViewEncapsulation, SimpleChanges, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+Input, ViewEncapsulation, SimpleChanges, AfterContentChecked, AfterViewInit,
+AfterViewChecked, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -13,12 +14,13 @@ Input, ViewEncapsulation, SimpleChanges, AfterContentChecked, AfterViewInit, Aft
 // using ViewEncapsulation.Emulaete,predeterminated
 
 export class ServerElementComponent implements
-OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
-  
+OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
+ AfterViewInit, AfterViewChecked, OnDestroy {
+
   // tslint:disable-next-line:no-input-rename
   @Input('srvElement') element: {type: string, name: string, content: string};
   // To be able to get data from the app.component's https using alias
-
+  @ViewChild('heading') header: ElementRef;
   constructor() {
     console.log('constructor called');
   }
@@ -28,6 +30,7 @@ OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit
   }
   ngOnInit() {
     console.log('OnInit called!');
+    console.log('TextContent:: ' + this.header.nativeElement.textContent);
   }
   ngDoCheck(): void {
     console.log('DoCheck called');
@@ -40,6 +43,7 @@ OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit
   }
   ngAfterViewInit(): void {
     console.log('AfterViewInit called');
+    console.log('TextContent2:: ' + this.header.nativeElement.textContent);
   }
   ngAfterViewChecked(): void {
     console.log('AfterViewChecked called');
