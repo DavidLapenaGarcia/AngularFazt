@@ -23,9 +23,14 @@
               {{ num }}
           </li>
         </div>
-      </ul>appBetterhighlight
+      </ul>
        <p appBasicHightlight > Style my with appBasicHightlight </p>
-       <p appBetterhighlight > Style my with appBetterhighlight </p>
+       <p [appBetterhighlight] = "'red'"
+          defaultColor = "blue"
+        > 
+        <!-- [defaultColor]="'blue'"  is the same, becoasue is a string-->
+          Style my with appBetterhighlight 
+        </p>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
