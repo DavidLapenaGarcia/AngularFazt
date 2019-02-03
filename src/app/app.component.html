@@ -4,11 +4,25 @@
       <button
         class="btn btn-primary"
         (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
-      <br><br>
+      <br><br> 
       <ul class="list-group">
-        <li
-          class="list-group-item">
-        </li>
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item "
+            [ngClass]="{odd: num % 2 == 0 !== 0}"
+            [ngStyle]="{'backgroundColor': num % 2 == 0 !== 0 ? 'yellow': 'transparent'}"
+            *ngFor="let num of oddNumbers">
+              {{ num }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{'ever': num % 2 != 2}"
+            *ngFor="let num of evenNumbers">
+              {{ num }}
+          </li>
+        </div>
       </ul>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
