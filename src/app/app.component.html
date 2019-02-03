@@ -1,67 +1,9 @@
-<div class="container">
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12">
-      <button
-        class="btn btn-primary"
-        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
-      <br><br> 
-      <ul class="list-group">
-        <div *ngIf="onlyOdd">
-          <li
-            class="list-group-item "
-            [ngClass]="{odd: num % 2 == 0 !== 0}"
-            [ngStyle]="{'backgroundColor': num % 2 == 0 !== 0 ? 'yellow': 'transparent'}"
-            *ngFor="let num of oddNumbers">
-              {{ num }}
-          </li>
-        </div>
-        <ng-template [ngIf]="!onlyOdd">
-          <div>
-              <li
-                class="list-group-item"
-                [ngClass]="{'ever': num % 2 != 2}"
-                *ngFor="let num of evenNumbers">
-                  {{ num }}
-              </li>
-          </div>
-        </ng-template>
-      </ul>
-       <p appBasicHightlight > Style my with appBasicHightlight </p>
-       <p [appBetterhighlight] = "'red'"
-          defaultColor = "blue"
-        > 
-        <!-- [defaultColor]="'blue'"  is the same, becoasue is a string-->
-          Style my with appBetterhighlight 
-        </p>
-        <br><br>
-
-        <p>OWN STRUCTURAL PROPIETIE (reverse of ngIf)</p>
-        <div *appUnless="onlyOdd">
-          <li
-            class="list-group-item "
-            [ngClass]="{odd: num % 2 == 0 !== 0}"
-            [ngStyle]="{'backgroundColor': num % 2 == 0 !== 0 ? 'yellow': 'transparent'}"
-            *ngFor="let num of oddNumbers">
-              {{ num }}
-          </li>
-        </div>
-        <ng-template [appUnless]="!onlyOdd">
-          <div>
-              <li
-                class="list-group-item"
-                [ngClass]="{'ever': num % 2 != 2}"
-                *ngFor="let num of evenNumbers">
-                  {{ num }}
-              </li>
-          </div>
-        </ng-template>
-        <br>
-        <div [ngSwitch]="value">
-          <p *ngSwitchCase="5">Value is 5</p>
-          <p *ngSwitchCase="10">Value is 10</p>
-          <p *ngSwitchCase="100">Value is 100</p>
-          <p *ngSwithDefault >Value is Default</p>
-        </div>
+    <div class="col-md-12">
+      <app-recipes *ngIf="loadedFeature === 'recipe' "></app-recipes>
+      <app-shopping-list *ngIf="loadedFeature === 'shopping-list' "></app-shopping-list>
     </div>
   </div>
 </div>
