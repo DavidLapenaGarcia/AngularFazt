@@ -15,14 +15,16 @@
               {{ num }}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
-          <li
-            class="list-group-item"
-            [ngClass]="{'ever': num % 2 != 2}"
-            *ngFor="let num of evenNumbers">
-              {{ num }}
-          </li>
-        </div>
+        <ng-template [ngIf]="!onlyOdd">
+          <div>
+              <li
+                class="list-group-item"
+                [ngClass]="{'ever': num % 2 != 2}"
+                *ngFor="let num of evenNumbers">
+                  {{ num }}
+              </li>
+          </div>
+        </ng-template>
       </ul>
        <p appBasicHightlight > Style my with appBasicHightlight </p>
        <p [appBetterhighlight] = "'red'"
@@ -31,9 +33,6 @@
         <!-- [defaultColor]="'blue'"  is the same, becoasue is a string-->
           Style my with appBetterhighlight 
         </p>
-      <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
-      </ng-template>
     </div>
   </div>
 </div>
