@@ -33,6 +33,28 @@
         <!-- [defaultColor]="'blue'"  is the same, becoasue is a string-->
           Style my with appBetterhighlight 
         </p>
+        <br><br>
+
+        <p>OWN STRUCTURAL PROPIETIE</p>
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item "
+            [ngClass]="{odd: num % 2 == 0 !== 0}"
+            [ngStyle]="{'backgroundColor': num % 2 == 0 !== 0 ? 'yellow': 'transparent'}"
+            *ngFor="let num of oddNumbers">
+              {{ num }}
+          </li>
+        </div>
+        <ng-template [appUnless]="!onlyOdd">
+          <div>
+              <li
+                class="list-group-item"
+                [ngClass]="{'ever': num % 2 != 2}"
+                *ngFor="let num of evenNumbers">
+                  {{ num }}
+              </li>
+          </div>
+        </ng-template>
     </div>
   </div>
 </div>
