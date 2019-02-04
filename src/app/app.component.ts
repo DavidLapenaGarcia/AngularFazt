@@ -1,22 +1,18 @@
-import { AccountsService } from './accounts.service';
 import { Component, OnInit } from '@angular/core';
 
-/* Video 103 . 1 Inyecting Services into Services
-  Deleted from provaiders [AccountsService], because we will
-  instance that service on more hight level, in thie app.mosule.ts.
-*/
+import { AccountsService } from './accounts.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  accounts: {name: string, status: string}[] = [];
 
-  accounts: { name: string, status: string }[] = [];
+  constructor(private accountsService: AccountsService) {}
 
-  constructor ( private accountsService: AccountsService ) {}
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.accounts = this.accountsService.accounts;
   }
 }

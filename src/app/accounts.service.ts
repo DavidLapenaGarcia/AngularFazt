@@ -1,19 +1,10 @@
+import { EventEmitter, Injectable } from '@angular/core';
+
 import { LoggingService } from './logging.service';
 
-/*
-
-*/
-import { Injectable, EventEmitter } from '@angular/core';
-
-/* Video 103 . 7 Inyecting Services into Services
-    But it breacks, becouse our service has not metadata.
-    @Comomnent or @Directive have, but here we need add some
-    "metadata-connector", and that is @Injectable()
-*/
 @Injectable()
-
 export class AccountsService {
-    accounts = [
+  accounts = [
     {
       name: 'Master Account',
       status: 'active'
@@ -27,30 +18,17 @@ export class AccountsService {
       status: 'unknown'
     }
   ];
-  /* Video 104 . 1 Using Services for Cross-Component Comunication
-    Creating an event in this AccountService.
-  */
-  statusUpdatedEvent = new EventEmitter<string>();
+  statusUpdated = new EventEmitter<string>();
 
+  constructor(private loggingService: LoggingService) {}
 
-  /* Video 103 . 7 Inyecting Services into Services
-      But naw we need to tell at constructor what we need.
-  */
-  constructor( private loggingService: LoggingService) {
-  }
-  addAccount(name: string, status: string): void {
-      this.accounts.push({name: name, status: status});
-      /* Video 103 . 6 Inyecting Services into Services
-      Adding here the LoggingService method that we commented on our components.
-      */
-      this.loggingService.losStatusChange(status);
+  addAccount(name: string, status: string) {
+    this.accounts.push({name: name, status: status});
+    this.loggingService.logStatusChange(status);
   }
 
   updateStatus(id: number, status: string) {
-      this.accounts[id].status = status;
-      /* Video 103 . 6 Inyecting Services into Services
-      Adding here the LoggingService method that we commented on our components.
-      */
-      this.loggingService.losStatusChange(status);
+    this.accounts[id].status = status;
+    this.loggingService.logStatusChange(status);
   }
 }
