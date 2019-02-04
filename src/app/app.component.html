@@ -1,14 +1,9 @@
-<div class="container">
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <app-active-users></app-active-users>
-      <app-inactive-users></app-inactive-users>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12"
-    *ngIf="count > 0">
-      Counter | {{count}}
+    <div class="col-md-12">
+      <app-recipes *ngIf="loadedFeature === 'recipe' "></app-recipes>
+      <app-shopping-list *ngIf="loadedFeature === 'shopping-list' "></app-shopping-list>
     </div>
   </div>
 </div>
