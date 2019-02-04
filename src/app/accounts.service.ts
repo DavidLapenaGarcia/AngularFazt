@@ -3,7 +3,7 @@ import { LoggingService } from './logging.service';
 /*
 
 */
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 /* Video 103 . 7 Inyecting Services into Services
     But it breacks, becouse our service has not metadata.
@@ -27,6 +27,12 @@ export class AccountsService {
       status: 'unknown'
     }
   ];
+  /* Video 104 . 1 Using Services for Cross-Component Comunication
+    Creating an event in this AccountService.
+  */
+  statusUpdatedEvent = new EventEmitter<string>();
+
+
   /* Video 103 . 7 Inyecting Services into Services
       But naw we need to tell at constructor what we need.
   */

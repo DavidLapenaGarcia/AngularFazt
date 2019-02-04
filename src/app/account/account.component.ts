@@ -25,5 +25,10 @@ export class AccountComponent {
        on our AccountService Service.
     */
     // this.loggingService.losStatusChange(status);
+
+  /* Video 104 . 2 Using Services for Cross-Component Comunication
+    And naw we are calling this event on AccountComponent
+  */
+    this.accountsService.statusUpdatedEvent.emit(status);
   }
 }

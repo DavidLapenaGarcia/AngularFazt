@@ -13,8 +13,8 @@ import { Component} from '@angular/core';
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
-  styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
+  styleUrls: ['./new-account.component.css']
+  // providers: [LoggingService]
 })
 export class NewAccountComponent {
 
@@ -22,7 +22,16 @@ export class NewAccountComponent {
       In the construcot, naw, Angular knows what we want but no how giv us the instance.
   */
   constructor ( private loggingService: LoggingService,
-                private accountsService: AccountsService ) {}
+                private accountsService: AccountsService ) {
+    /* Video 104 . 3 Using Services for Cross-Component Comunication
+    And naw we are listening the event.
+    Right naw we comment the LoggingService's provider too, to get the same
+    LoggingService instance who call the event that we are tring to listen-subscribe()
+    */
+    this.accountsService.statusUpdatedEvent.subscribe(
+      (status: string) => alert('New Status:' + status)
+      );
+  }
 
 
   onCreateAccount(accountName: string, accountStatus: string) {
