@@ -20,7 +20,7 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountsService.updateStatus(this.id, status);
-    /* Video 103 . 2 Inyecting Services into Services
+    /* Video 103 . 4 Inyecting Services into Services
        We comment this function because we will call this loggingSercices's methos
        on our AccountService Service.
     */
