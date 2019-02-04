@@ -1,13 +1,15 @@
 import { AccountsService } from './../accounts.service';
 import { LoggingService } from './../logging.service';
 import { Component, Input } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
+/* Video 103 . 3 Inyecting Services into Services
+  Deleted from providers [LoggindService]
+*/
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LoggingService, AccountsService]
+  // providers: [LoggingService]
 })
 export class AccountComponent {
   @Input() account: {name: string, status: string};
@@ -18,6 +20,10 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountsService.updateStatus(this.id, status);
-    this.loggingService.losStatusChange(status);
+    /* Video 103 . 2 Inyecting Services into Services
+       We comment this function because we will call this loggingSercices's methos
+       on our AccountService Service.
+    */
+    // this.loggingService.losStatusChange(status);
   }
 }

@@ -31,6 +31,9 @@ export class NewAccountComponent {
     Naw we can use our propierty 'loggingService: LoggingService'.
     So, naw angular are making the instance for as.
   */
-    this.loggingService.losStatusChange(accountStatus);
+  /* Video 103 . 5 Inyecting Services into Services
+      Same here
+  */
+    // this.loggingService.losStatusChange(accountStatus);
   }
 }
