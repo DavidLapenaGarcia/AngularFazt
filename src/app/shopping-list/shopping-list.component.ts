@@ -16,5 +16,15 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit() {
     this.ingredients = this.shoppingListService.getIngredients() ;
+    /* Video 111.2 Using Services to Pushind Data from A to B
+        Here we listen-subcribe the ingredientsChanged Event.
+    */
+    this.shoppingListService.ingredientsChanged
+      .subscribe(
+        (ingredients: Ingredient[]) => {
+          this.ingredients = ingredients;
+        }
+      );
   }
+
 }
