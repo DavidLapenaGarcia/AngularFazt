@@ -4,13 +4,13 @@
       <!-- Doing that, page refresh on evry click. Bad.-->
       <ul class="nav nav-tabs">
         <li role="presentation" class="nav-item" >
-          <a href="/" class="nav-link active">Home</a>
+          <a routerLink="/" routerLinkActive="router-link-active"  class="nav-link active">Home</a>
         </li>
         <li role="presentation" class="nav-item">
-          <a href="/servers" class="nav-link">Servers</a>
+          <a [routerLink]="['servers']" class="nav-link">Servers</a>
         </li>
         <li role="presentation" class="nav-item">
-          <a href="/users" class="nav-link">Users</a>
+          <a [routerLink]="['users']"  class="nav-link">Users</a>
         </li>
       </ul>
     </div>
