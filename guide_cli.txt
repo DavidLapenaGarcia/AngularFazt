@@ -2,3 +2,13 @@ ng serve
 ng generate
             component [component_name] || ng g c [component_name]
             component --spec false  ===> To do not ceate spec file
+
+
+ADD BOOTSTRAP:
+npm install bootstrap --save
+
+on angular.json:
+    "styles": [
+        "src/styles.css",
+        "node_modules/bootstrap/dist/css/bootstrap.min.css"
+    ],
