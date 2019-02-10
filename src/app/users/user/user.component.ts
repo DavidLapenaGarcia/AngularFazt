@@ -1,13 +1,16 @@
 import { ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
+
   user: {id: number, name: string};
+  paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -27,14 +30,22 @@ export class UserComponent implements OnInit {
     is refreshed or not.
     This code will be executed to subscribe at ngOnInit, and only if the
     params change will executed all.
+    See ngOnDestroy to see how delete this data, because even if that
+    component is destroyed, this data will remain on our disk.
     */
-    this.route.params
+    this.paramsSubscription = this.route.params
       .subscribe(
         (params: Params) => {
           this.user.id = params['id'];
           this.user.name = params['name'];
         }
       );
+  }
+  /*
+  Doing that we make sure that the data will be destroyed
+  */
+  ngOnDestroy(): void {
+    this.paramsSubscription.unsubscribe();
   }
 
 }
