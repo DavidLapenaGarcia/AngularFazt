@@ -25,6 +25,8 @@ export class UserComponent implements OnInit {
     But doind that, the parametters are getted in a asyncro
     wey, so it will wait for the 'event' any time, dispite if the web page
     is refreshed or not.
+    This code will be executed to subscribe at ngOnInit, and only if the
+    params change will executed all.
     */
     this.route.params
       .subscribe(
