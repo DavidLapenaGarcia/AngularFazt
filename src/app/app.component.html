@@ -1,36 +1,9 @@
-<div class="container">
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <!-- Doing that, page refresh on evry click. Bad.-->
-      <ul class="nav nav-tabs">
-
-        <li role="presentation" class="nav-item" >
-          <a class="nav-link"
-            routerLink="/" 
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}"
-            >
-            Home</a>
-        </li>
-        <li role="presentation" class="nav-item">
-          <a [routerLink]="['servers']" 
-             routerLinkActive="active" 
-            class="nav-link">
-            Servers</a>
-        </li>
-        <li role="presentation" class="nav-item">
-          <a [routerLink]="['users']"  
-             routerLinkActive="active" 
-            class="nav-link">
-            Users</a>
-        </li>
-      </ul>
+    <div class="col-md-12">
+      <app-recipes *ngIf="loadedFeature === 'recipe' "></app-recipes>
+      <app-shopping-list *ngIf="loadedFeature === 'shopping-list' "></app-shopping-list>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
 </div>
