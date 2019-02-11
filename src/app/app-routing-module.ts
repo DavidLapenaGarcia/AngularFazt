@@ -16,7 +16,14 @@ const appRoutes: Routes = [
       {path: ':id/:name',   component: UserComponent }
   ]   },
   // Adding guard as a canActivate parameter with our AuthGuard
-  {path: 'servers', canActivate: [AuthGuard],   component: ServersComponent, children: [
+  {path: 'servers',
+    /* Protecting Child (Nasted) Routes with canActivateChild 4
+        Naw we are protecting the servers's routes childs, but not servers's route
+    */
+   // canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    component: ServersComponent,
+    children: [
       {path: ':id',                             component: ServerComponent},
       {path: ':id/edit',                        component: EditServerComponent}
   ]   },
