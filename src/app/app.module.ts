@@ -13,9 +13,10 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 // IMPORT ROUTES
-// import { Routes, RouterModule} from '@angular/router';
+// import { Routes, RouterModule, CanDeactivate } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing-module';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 // DEFINE ROUTES
 
 @NgModule({
@@ -34,7 +35,7 @@ import { AppRoutingModule } from './app-routing-module';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AuthService, AuthGuard],
+  providers: [ServersService, AuthService, AuthGuard, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

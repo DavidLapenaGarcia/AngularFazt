@@ -1,3 +1,4 @@
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { AuthGuard } from './auth-guard.service';
 import { NgModule } from '@angular/core';
 
@@ -16,16 +17,16 @@ const appRoutes: Routes = [
       {path: ':id/:name',   component: UserComponent }
   ]   },
   // Adding guard as a canActivate parameter with our AuthGuard
-  {path: 'servers',
+  {path: 'servers',         component: ServersComponent,
     /* Protecting Child (Nasted) Routes with canActivateChild 4
         Naw we are protecting the servers's routes childs, but not servers's route
     */
-   // canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    component: ServersComponent,
-    children: [
-      {path: ':id',                             component: ServerComponent},
-      {path: ':id/edit',                        component: EditServerComponent}
+                        //  canActivate: [AuthGuard],
+                            canActivateChild: [AuthGuard],
+                            children: [
+      {path: ':id',         component: ServerComponent},
+      {path: ':id/edit',    component: EditServerComponent,
+                            canDeactivate: [CanDeactivateGuard]}
   ]   },
   {path: 'not-found',       component: PageNotFoundComponent},
   // It must be the last route!
