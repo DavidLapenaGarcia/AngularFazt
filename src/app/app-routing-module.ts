@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth-guard.service';
 import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './home/home.component';
@@ -14,9 +15,10 @@ const appRoutes: Routes = [
   {path: 'users',           component: UsersComponent, children: [
       {path: ':id/:name',   component: UserComponent }
   ]   },
-  {path: 'servers',         component: ServersComponent, children: [
-      {path: ':id',         component: ServerComponent},
-      {path: ':id/edit',    component: EditServerComponent}
+  // Adding guard as a canActivate parameter with our AuthGuard
+  {path: 'servers', canActivate: [AuthGuard],   component: ServersComponent, children: [
+      {path: ':id',                             component: ServerComponent},
+      {path: ':id/edit',                        component: EditServerComponent}
   ]   },
   {path: 'not-found',       component: PageNotFoundComponent},
   // It must be the last route!
