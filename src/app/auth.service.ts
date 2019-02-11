@@ -5,14 +5,14 @@ export class AuthService {
     loggedIn = false;
 
 /*
-This method returns the loggedIn value at past 800 ms.
+This method returns the loggedIn value at past 100 ms.
 */
     isAuthenticated() {
         const promise = new Promise(
             (resolve, reject) => {
                 setTimeout( () => {
                     resolve(this.loggedIn);
-                }, 800);
+                }, 100);
             }
         );
         return promise;

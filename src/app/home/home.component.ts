@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -17,6 +18,15 @@ export class HomeComponent implements OnInit {
       queryParams: {allowEdir: '1'},
       fragment: 'loading'
     });
+  }
+/* Using Fake Auth Service 2
+Calling to authService functions
+ */
+  onLogin() {
+    this.authService.login();
+  }
+  onLogout() {
+    this.authService.logout();
   }
 
 }

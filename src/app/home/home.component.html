@@ -1,9 +1,20 @@
 <h4>Welcome to Server Manager 4.0</h4>
 <p>Manage your Servers and Users.</p>
 <button
-    class="btn btn-primary"
+    class="btn btn-primary m-1"
     (click)="onLoadServer(1)">
     Load Server 1
 </button>
 
+<!-- Using Fake Auth Service 1
+    to test 
+ -->
+<button class="btn btn-primary m-1"
+    (click)="onLogin()">
+ LOGIN   
+</button>
+<button class="btn btn-danger m-1"
+    (click)="onLogout()">
+    Logout
+</button>
 
