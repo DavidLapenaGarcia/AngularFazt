@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params, Data } from '@angular/router';
 
 @Component({
   selector: 'app-server',
@@ -16,7 +16,7 @@ export class ServerComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    // Here we are getting the data
+    /* // Here we are getting the data
     const id = +this.activatedRoute.snapshot.params['id'];
     this.server = this.serversService.getServer(id);
 
@@ -24,6 +24,15 @@ export class ServerComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         this.server = this.serversService.getServer(+params['id']);
+      }
+    );*/
+
+    /*  Resolving Dynamic Data with the resolve Guard 4
+    And naw we coment the old code because we are able to use an Resolver.
+    */
+    this.activatedRoute.data.subscribe(
+      (data: Data) => {
+        this.server = data['server'];
       }
     );
   }

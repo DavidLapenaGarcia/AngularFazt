@@ -11,6 +11,7 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 
 const appRoutes: Routes = [
   {path: '',                component: HomeComponent },
@@ -25,7 +26,10 @@ const appRoutes: Routes = [
                         //  canActivate: [AuthGuard],
                             canActivateChild: [AuthGuard],
                             children: [
-      {path: ':id',         component: ServerComponent},
+      /* Resolving Dynamic Data with the resolve Guard 3
+      Here we add 'resolve:' parameter and difine the data to get (the 'kay' is server, in this case)
+      */
+      {path: ':id',         component: ServerComponent, resolve: { server: ServerResolver} },
       {path: ':id/edit',    component: EditServerComponent,
                             canDeactivate: [CanDeactivateGuard]}
   ]   },
