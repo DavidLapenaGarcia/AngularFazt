@@ -1,4 +1,10 @@
 <div class="container well">
-  <h1>My first Angular App</h1>
-  <app-reservation-entry></app-reservation-entry>
+  <h1>Welcome to the 50's restaurant</h1>
+  <nav>
+      <a class="btn btn-primary" routerLink="/new-reservation" routerLinkActive="active">
+      New reservation</a>
+      <a class="btn btn-primary" routerLink="/reservation-management" routerLinkActive="active">
+      Manage reservation</a>
+  </nav>
+  <router-outlet></router-outlet>
 </div>

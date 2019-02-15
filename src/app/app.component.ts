@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root', //
-  templateUrl: './app.component.html', //html asociado a este componente
-  styleUrls: ['./app.component.css'] //hoja de estilo
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Best50 DAW BIO 2   ';
+  title = 'Best50s2';
 }
