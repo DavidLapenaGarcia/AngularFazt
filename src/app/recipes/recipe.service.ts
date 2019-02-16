@@ -12,18 +12,13 @@ export class RecepieService {
             'Pa amb tomaquet',
             'I amb corder millor',
             'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
-            [
-                new Ingredient('bread', 1), new Ingredient('tomato', 2)
-            ]
+            [new Ingredient('bread', 1), new Ingredient('tomato', 2)]
             ),
         new Recipe(
         'Truita',
         'Lo gabatx no sap cuinar',
         'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
-        [
-            new Ingredient('Ou', 1), new Ingredient('Sal', 2)
-        ]
-
+        [new Ingredient('Ou', 1), new Ingredient('Sal', 2)]
         )
     ];
 
