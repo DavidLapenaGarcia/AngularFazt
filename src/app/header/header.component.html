@@ -7,8 +7,20 @@
     <div class="navbar">
 
       <ul class="navbar-nav navbar-left">
+      <!-- Before video 147.0 Adding Navigation to the App
         <li><a class="nav-link" href="#" (click)="onSelect('recipe')" >Recipes</a></li>
-        <li><a class="nav-link" href="#" (click)="onSelect('shopping-list')" >Shopping List</a></li>
+        <li><a class="nav-link" href="#" (click)="onSelect('shopping-list')" >Shopping List</a></li>  
+      -->
+        <li><a class="nav-link" 
+                routerLink="/recipies" 
+                routerLinkActive="router-link-active"
+                > Recipes </a>
+        </li>
+        <li><a class="nav-link"
+                routerLink="/shopping-list" 
+                routerLinkActive="router-link-active"
+                > Shopping List </a>
+        </li> 
       </ul>
 
       <ul class=" navbar-nav navbar-right ">
