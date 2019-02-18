@@ -6,9 +6,12 @@
 <hr>
 <div class="row">
   <div class="col-sm-12">
+    <!-- 153.0.1 Passing Dinamoic Parameters to Links
+  We need to pass id/index value -->
     <app-recipe-item 
-    *ngFor="let recipeElement of recipes"
+    *ngFor="let recipeElement of recipes; let i = index"
     [recipe]="recipeElement"
+    [index] = "i"
     >
     </app-recipe-item>
   </div>
