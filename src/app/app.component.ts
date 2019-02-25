@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+
     this.userService.userActivated.subscribe(
       (id: number) => {
         if (id === 1) {
