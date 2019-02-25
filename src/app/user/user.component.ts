@@ -14,8 +14,14 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe(
-        (params: Params) => {
+        (params: Params) => {  // Obserbable DATA
           this.id = +params['id'];
+        },
+        () => {                // Oservavle ERROR
+
+        },
+        () => {                // Obserable COMPLATES
+
         }
       );
   }
