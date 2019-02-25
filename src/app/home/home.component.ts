@@ -13,12 +13,12 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const myNumbers = interval(1000);
+    /* const myNumbers = interval(1000);
     myNumbers.subscribe(
       (number: number) => {
         console.log('1 ${number}');
       }
-    );
+    ); */
     const myObserbable = Observable.create(
       (observer: Observer<string>) => {
         setTimeout(() => {
